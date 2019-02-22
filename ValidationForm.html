@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FORM</title>
+        <link rel="stylesheet" href="style.css">
+
+
+
+        <script>
+            function validate(form) {
+                var x1 = form.elements[0].dataset.validation;
+                var y1 = form.elements[0].value;
+                var textformat =/^[A-Za-z\s]/i;
+                if (x1 == "") {
+                    text1 = “This field is required”;
+                } else if (x1 == text && !y1.match(textformat)) {
+                    text1 = “Text is not valid.”;
+                } else {
+                    true
+                }
+                 document.getElementById("message").innerHTML = text1;
+
+                var x2 = form.elements[1].dataset.validation;
+                var y2 = form.elements[1].value;
+                var mailformat =/^\w+@\w+.\w{2,4}$/i;
+                if (x2 == "") {
+                    text2 = “This field is required”;
+                } else if (x2 == text && !y2.match(mailformat)) {
+                    text2 = “Text is not valid.”;
+                } else {
+                    true
+                }
+                document.getElementById("message").innerHTML = text2;
+
+                var x6 = form.elements[5].dataset.validation;
+                var y6 = form.elements[5].value;
+                var mailformat =/^\w+@\w+.\w{2,4}$/i;
+                if (x6 == "") {
+                    text6 = “This field is required”;
+                } else if (x6 == text && !y6.match(mailformat)) {
+                    text6 = “e-mail adress is not valid.”;
+                } else {
+                    true
+                }
+
+                document.getElementById("message").innerHTML = text6;
+
+                var x7 = form.elements[6].dataset.validation;
+                var y7 = form.elements[6].value;
+                var textformat =/^[A-Za-z\s]/i;
+                if (x7 == "") {
+                    text7 = “This field is required”;
+                } else if (x7 == text && !y1.match(textformat)) {
+                    text7 = “Text is not valid.”;
+                } else {
+                    true
+                }
+                 document.getElementById("message").innerHTML = text7;
+
+                var x8 = form.elements[7].dataset.validation;
+                var y8 = form.elements[7].value;
+                var mailformat =/^\w+@\w+.\w{2,4}$/i;
+                if (x8 == "") {
+                    text8 = “This field is required”;
+                } else if (x8 == text && !y6.match(mailformat)) {
+                    text8 = “e-mail adress is not valid.”;
+                } else {
+                    true
+                }
+
+                document.getElementById("message").innerHTML = text6;
+    }
+
+
+
+    </script>
+    </head>
+    <body>
+        <h1>Create your personal account</h1>
+        <form name="myForm" action="" onsubmit="return validateForm()" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <label for="First-name-field">First name *</label>
+                    </td>
+                    <td>
+                        <input data-validation="text" type="text" name="first" id="First-name-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <p id="message1"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Last-name-field">Last name *</label>
+                    </td>
+                    <td>
+                        <input type="text" data-validation="text" name="Last_name" id="Last-name-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Birthday-field">Birthday *</label>
+                    </td>
+                    <td>
+                    <input type="date" data-validation="date" name="Birthday" id="Birthday-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="radio-field">Gender *</label>
+                    </td>
+                    <td>
+                    <input type="radio" data-validation="radio" name="gender" id="radio-field" value="M">
+                    <input type="radio" data-validation="radio" name="gender" id="radio-field" value="W">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="country-field">Country *</label>
+                    </td>
+                    <td>
+                        <select name="country" id="country-field">
+                            <option>Ukraine</option>
+                            <option value="USA">United States of America</option>
+                            <option value="GB">Great Britain</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email-field">E-mail *</label>
+                    </td>
+                    <td>
+                        <input type="email" data-validation="email" name="email" id="email-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <p id="message6"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password-field">Your password *</label>
+                    </td>
+                    <td>
+                        <input type="password" data-validation="password" name="password" id="password-field">
+                        <p class="note">Make sure it's more than 15 characters OR at least 8 characters including a number and a lowercase letter.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="adresss-field">Your adress *</label>
+                    </td>
+                    <td>
+                        <input type="adress" data-validation="text" name="adress" id="adresss-field">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="notes-field">Notes</label>
+                    </td>
+                    <td>
+                        <textarea name="notes" id="notes-field" rows="8" cols="22" ></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <p>* - required</p>
+            <input type="submit" data-validation="button" onclick="validate(this.form)" value="submit">
+        </form>
+
+
+
+    </body>
+</html>
